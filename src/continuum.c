@@ -56,6 +56,7 @@ int continuum_realloc_buffer(
     }
 
     continuum->space = new_space;
+    
     return OK;
 }
 
