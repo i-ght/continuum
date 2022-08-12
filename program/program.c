@@ -45,7 +45,7 @@ int main(void)
     bool ok = 0 == memcmp(
         expected,
         tmp,
-        sizeof(expected) - 1
+        continuum_writ(&continuum)
     );
 
     if (!ok) {

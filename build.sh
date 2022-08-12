@@ -14,3 +14,21 @@ clang -g -shared -o bin/libcontinuum.so $doto_files
 clang -g -o bin/program program/program.c -I./include -L./bin -l:libcontinuum.a
 
 rm ./src/*.c.o
+
+
+install='install'
+uninstall='uninstall'
+
+case "$1" in
+  "$install")
+    cp bin/libcontinuum.so ~/.local/lib/
+    cp bin/libcontinuum.a ~/.local/lib/
+  ;;
+  "$uninstall")
+    rm ~/.local/lib/libcontinuum.so
+    rm ~/.local/lib/libcontinuum.a
+  ;;
+  *)
+    
+  ;;
+esac
