@@ -2,7 +2,7 @@
 
 static void* free_data(const size_t space)
 {
-#define AMOUNT_AVAIL 232
+#define AMOUNT_AVAIL 10000
 
     if (space > AMOUNT_AVAIL) {
         exit(EXIT_FAILURE);
@@ -17,18 +17,18 @@ int main(void)
 
     continuum_construct(&continuum, realloc, free);
 
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 999; i++) {
         if (-1 == 
             continuum_write_cstr(
                 &continuum,
-                "a"
+                "abc"
             )
         ) {
             return EXIT_FAILURE;
         }
     }
 
-    static const char expected[] = "aaaaaaaaaa";
+    static const char expected[] = "abcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabc";
 
     char* tmp = NULL;
 
